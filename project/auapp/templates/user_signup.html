@@ -1,0 +1,29 @@
+{% extends 'base.html' %}
+{% block title %} Sign Up Page {% endblock %}
+
+{% block content %}
+<h1 style="float:left;padding-left:300px;"> Sign Up </h1><br>
+<form method="POST" style="float:left;">
+	{% csrf_token %}
+	<fieldset style="background-color:powderblue;width:90%;height:78%;color:black;padding-top:5%;">
+	<input type="text" name="name" placeholder="Enter name" required>
+	<br><br>
+	<input type="email" name="un" placeholder="Enter email" required>
+	<br><br>
+	<input type="submit" value="Sign Up" style="font-size:30px;">
+	<p style="pading-top:5px;font-size:20px;font-family:arial">Already have an account? </p> <a style="color:blue;background-color:white;" href="{% url 'user_login' %}">Log In</a>
+	<br><br>
+	<h2> <strong style="color:red;">Note:</strong> password will send on ur email </h2>
+	</fieldset>
+</form>
+<div class="lg:max-w-lg lg:w-full md:w-1/2 w-5/6" style="float:right;width:40%;padding-top:5%;">
+	<h3>Plan your day with Task Manager :) </h3><br>
+      <img class="object-cover object-center rounded" alt="To-Do-List" src="https://dbinstitute-wpengine.netdna-ssl.com/wp-content/uploads/plan_notebook-700x467.jpg" width="600" height="850">
+	<p style="font-size:20px;float:right;">If recived Password on Email is difficult to rember than you can change after login, by Click on <strong style="font-size:25px;color:red;">Change Password</strong> :) </P>
+    </div>
+	
+     <div style="float:left;color:red;background-color:yellow;width:48%">
+	<h1> {{ msg }} </h1>
+	</div>
+	<br><br><br><br><br><br><br><br><br><br>
+{% endblock %}

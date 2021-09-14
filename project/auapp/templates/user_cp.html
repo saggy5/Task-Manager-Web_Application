@@ -1,0 +1,28 @@
+
+{% extends 'base.html' %}
+{% block title %} Change Password page {% endblock %}
+
+{% block content %}
+<br>
+<h1 style="float:left;padding-left:200px;"> Change Password </h1><br>
+<form method="POST" style="float:left;margin-left:2%;" class="mb-3">	
+	{% csrf_token %}
+	<fieldset style="background-color:powderblue;width:750px;height:530px;color:black;padding-top:60px;">
+		
+		<input type="password" name="pw1" placeholder="new password" required>
+		<br><br>
+		<input type="password" name="pw2" placeholder="confirm password" required>
+		<br><br>
+		<input type="submit" value="Change Password" type="button" class="btn btn-success">
+	</fieldset>
+</form>
+	<div class="lg:max-w-lg lg:w-full md:w-1/2 w-5/6" style="float:right;width:40%;padding-top:0px">
+	<h3>Plan your day with Task Manager :) </h3><br>
+      <img class="object-cover object-center rounded" alt="Change-password" src="https://www.techserveto.com/wp-content/uploads/2020/11/Password-picture.jpg" width="700" height="1000"><br><br><br>
+    </div>
+
+	<div style="float:left;color:red;background-color:yellow;width:48%">
+	<h1> {{ msg }} </h1>
+	</div>
+{% endblock %}
+			

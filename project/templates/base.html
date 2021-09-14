@@ -1,0 +1,86 @@
+{% load static %}
+<html>
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title> {% block title %} {% endblock %} </title>
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-F3w7mX95PdgyTmZZMECAngseQB83DfGTowi0iMjiWaeVhAn4FJkqJByhZMI3AhiU" crossorigin="anonymous">
+<link href="https://unpkg.com/tailwindcss@^2/dist/tailwind.min.css" rel="stylesheet">
+
+	<style>
+		*{
+		font-family:Calibri; font-size:40px;
+		}
+		#nav{
+		background-color:#ff5454;
+		text-align:center;
+		}
+
+		#nav a:hover{
+		color:blue;}
+	
+		#nav a{
+		color:#D9D9D9;
+		font-size:40px;
+		text-decoration:none;
+		padding:2%;
+		}
+
+		body {
+		background-color:white;
+		background-image: url("/static/images/paln.JPG");
+		background-repeat:no-repeat;
+		background-size:100%;
+		color:black;
+		<img src="{% static 'images/plan.jpg' %}">
+		}
+		
+		.footer{
+		position: relative;
+		width: 100%;
+		height: auto;
+		padding: 2% 4%;
+		background: #111;
+		color:white;
+		text-align: justify;
+			}
+		
+	</style>
+	
+</head>
+
+<body img src="{% static 'images/plan.jpg' %}">
+<center>
+
+	<div id="nav">
+	{% if user.is_authenticated %}
+		<div style="float:right;background-color:#ff5454;color:white;">
+		<a href="{% url 'home' %}">Back Home</a>
+		<a href="{% url 'user_cp' %}"> Change Password</a>
+		<a href="{% url 'user_logout' %}">Logout </a>
+		</div>	
+	{% else %}
+		<div>
+		<a href="{% url 'user_login' %}"> Login </a>
+		<a href="{% url 'user_signup' %}"> Sign up </a>
+		<a href="{% url 'user_np' %}"> Forget Password </a>
+		</div>
+	{% endif %}	
+	</div>	
+	{% block content %} {% endblock %}
+
+<br><br><br><br><br><br><br><br><br><br>
+
+<footer class="footer">
+	<p>Developer:<strong style="color:yellow;">Sagar Kandu </strong> </p>
+ 	<p>E@Mail:<a style="color:red;" href="mailto:sagarkandu5@gmail.com">sagarkandu5@gmail.com</a></p>
+	<p>Linkedin:<a style="color:red;" href="https://www.linkedin.com/in/sagar-kandu-719258181">SagarKandu</a></p>
+	<p>Phone:<a style="color:red;" href="Phone:+91-9699650650">+91-9699650650</a></p>
+	<p>Developed Using:<strong style="color:yellow;">Django (Python Framework), HTML, CSS, Bootstrap  </strong> </p>
+</footer>	
+			  
+</center>
+</body>
+</html>
+
+

@@ -1,0 +1,42 @@
+{% extends 'base.html' %}
+{% block title %} View Page {% endblock %}
+<link href="https://unpkg.com/tailwindcss@^2/dist/tailwind.min.css" rel="stylesheet">
+{% block content %}
+<body style="background-color:white;">
+<h1 style="width:40%;padding-top:6%;padding-botttom:10px;"> Your Do-List </h1>
+
+<hr style="border-top: 5px solid red;">
+
+
+<table class="w-full text-md bg-white shadow-md rounded mb-20" style="width:85%;">
+	  <tbody style="background-color:white;">
+	
+                <tr style="background-color:silver;">
+		    <th class="text-left p-3 px-6">Task No.</th>
+                    <th class="text-left p-3 px-6">Task</th>
+                    
+		    <th class="text-left p-3 px-6">Date&Time</th>
+		    <th class="text-left p-3 px-6">Delete</th>
+		    <th></th>
+     	          </tr>	
+		
+	{% for d in data %}
+		<tr>
+			<td style="padding-left:30px;"> {{ forloop.counter }} </td>
+			<td> {{ d.task }} </td>
+			<td> {{ d.time_date }}</td>
+			<td><a style="color:red;padding-left:60px;" href="{% url  'delete' id=d.task_no %}" onclick="return confirm('r uhh sure?')"> Delete </a></td>
+			
+		<th></th>
+		</tr>
+	{% empty %}
+		<tr>
+		<td> No Task added</td><td> yet pls add</td><td> some task by clicking on:</td><td><strong style="color:red;">Create</strong></td>
+		</tr>
+	{% endfor %}
+	</tbody>
+</table>
+
+</body>
+{% endblock %}
+

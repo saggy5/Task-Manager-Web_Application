@@ -1,0 +1,24 @@
+{% extends 'base.html' %}
+{% block title %} Create Page {% endblock %}
+
+{% block content %}
+<body style="background-color:white;">
+<br>
+<h1 style="width:40%;padding-top:2%;color:blue"><b> Create Your Task</b></h1>
+
+<div>
+<form method="POST" style="background-color:gray;width:60%;padding:6px;">
+		{% csrf_token %}
+		<div>
+		<table border="3">
+			{{ fm.as_table }}	
+		</table>
+		</div>
+		<br>
+		<input type="submit" type="button" class="btn btn-success">
+		<br><br>
+	</form>
+	<h1 style="background-color:yellow;">{{ msg }}</h1>
+</div>
+</body>
+{% endblock %}

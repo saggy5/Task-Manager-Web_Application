@@ -1,0 +1,24 @@
+{% extends 'base.html' %}
+{% block title %} Home Page {% endblock %}
+<head>
+
+
+{% block content %}
+
+<body style="background-color:white;">
+<div style="width:70%;padding-top:8%;">
+	
+	<h1 style="background-color:tomato;padding-top:5px;">Write Your Feedback Pls </h1>
+
+	<form method="POST" style="background-color:silver;padding-top:10px;">
+	{% csrf_token %}
+		<table>
+			{{ fm.as_table }}
+		</table>
+		<br>
+		<input type="submit" type="button" class="btn btn-success">
+	</form>
+</div>
+
+	<h1 style="color:red;"> {{ msg }} </h1>
+{% endblock %}
